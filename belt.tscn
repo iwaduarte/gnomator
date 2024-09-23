@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhe4l3jckesk3"]
+
+[ext_resource type="Texture2D" uid="uid://bxxx6nbmup2uj" path="res://assets/conveyorbelt.png" id="1_2e4u1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfaiq"]
+size = Vector2(121, 117)
+
+[node name="Belt" type="Area2D" groups=["belt"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("1_2e4u1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, 0.5)
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_yfaiq")

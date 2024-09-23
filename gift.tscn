@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpeictavutk3p"]
+
+[ext_resource type="Script" path="res://gift.gd" id="1_propw"]
+[ext_resource type="Texture2D" uid="uid://csap5ayygjas7" path="res://assets/giftbox.png" id="2_vag0o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dgjjj"]
+size = Vector2(80, 76)
+
+[node name="Gift" type="Area2D"]
+script = ExtResource("1_propw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vag0o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 14)
+shape = SubResource("RectangleShape2D_dgjjj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

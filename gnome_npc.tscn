@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://biygm1gurjy0c"]
+
+[ext_resource type="Texture2D" uid="uid://bs8ogsnr6a1hs" path="res://assets/gnomer.png" id="1_o7umf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pgvi"]
+size = Vector2(56, 126)
+
+[node name="GnomeNPC" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_o7umf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_2pgvi")

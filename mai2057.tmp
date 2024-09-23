@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv28rt7r84thv"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_mv604"]
+[ext_resource type="PackedScene" uid="uid://i2a7pw5ib42r" path="res://gnome.tscn" id="3_svu4t"]
+[ext_resource type="PackedScene" uid="uid://biygm1gurjy0c" path="res://gnome_npc.tscn" id="4_bnfqa"]
+[ext_resource type="PackedScene" uid="uid://bhe4l3jckesk3" path="res://belt.tscn" id="5_bv268"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_mv604")
+
+[node name="GiftTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="CountDownTImer" type="Timer" parent="."]
+wait_time = 30.0
+
+[node name="Gnome" parent="." instance=ExtResource("3_svu4t")]
+position = Vector2(417, 392)
+
+[node name="Belt" parent="." instance=ExtResource("5_bv268")]
+position = Vector2(3, 290)
+
+[node name="GnomeNPC" parent="." instance=ExtResource("4_bnfqa")]
+position = Vector2(1179, 597)
+
+[node name="GnomeNPC2" parent="." instance=ExtResource("4_bnfqa")]
+position = Vector2(1182, 379)
+
+[node name="GnomeNPC3" parent="." instance=ExtResource("4_bnfqa")]
+position = Vector2(1179, 170)
+
+[connection signal="timeout" from="GiftTimer" to="." method="_on_gift_timer_timeout"]
+[connection signal="timeout" from="CountDownTImer" to="." method="_on_count_down_t_imer_timeout"]
