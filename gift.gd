@@ -37,7 +37,6 @@ func _on_area_entered(area: Area2D) -> void:
 		queue_free()
 		gift_collected.emit(self)
 
-
 # increment difficulty
 func _on_timer_timeout() -> void:
 	if picked_id == get_instance_id():
