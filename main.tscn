@@ -1,35 +1,94 @@
-[gd_scene load_steps=6 format=3 uid="uid://dv28rt7r84thv"]
+[gd_scene load_steps=7 format=3 uid="uid://dv28rt7r84thv"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_mv604"]
 [ext_resource type="PackedScene" uid="uid://dpeictavutk3p" path="res://gift.tscn" id="2_7tkyn"]
 [ext_resource type="PackedScene" uid="uid://i2a7pw5ib42r" path="res://gnome.tscn" id="3_svu4t"]
 [ext_resource type="PackedScene" uid="uid://biygm1gurjy0c" path="res://gnome_npc.tscn" id="4_bnfqa"]
 [ext_resource type="PackedScene" uid="uid://bhe4l3jckesk3" path="res://belt.tscn" id="5_bv268"]
+[ext_resource type="Script" path="res://canvas_layer.gd" id="6_r44w0"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_mv604")
 gift_scene = ExtResource("2_7tkyn")
 
 [node name="GiftTimer" type="Timer" parent="."]
-autostart = true
 
 [node name="CountDownTImer" type="Timer" parent="."]
 wait_time = 15.0
 
 [node name="Gnome" parent="." instance=ExtResource("3_svu4t")]
-position = Vector2(417, 392)
+position = Vector2(473, 340)
 
 [node name="Belt" parent="." instance=ExtResource("5_bv268")]
-position = Vector2(3, 290)
+position = Vector2(0.338135, 321.468)
 
 [node name="GnomeNPC" parent="." instance=ExtResource("4_bnfqa")]
-position = Vector2(1179, 597)
+position = Vector2(1205, 595)
 
 [node name="GnomeNPC2" parent="." instance=ExtResource("4_bnfqa")]
-position = Vector2(1182, 379)
+position = Vector2(1205, 402)
 
 [node name="GnomeNPC3" parent="." instance=ExtResource("4_bnfqa")]
-position = Vector2(1179, 170)
+position = Vector2(1204, 229)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("6_r44w0")
+
+[node name="Message" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 33.0
+offset_right = 159.0
+offset_bottom = 121.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Gnomator"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartGameButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -92.0
+offset_right = 156.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Start Game"
+autowrap_mode = 2
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -240.0
+offset_top = 33.0
+offset_right = 1.0
+offset_bottom = 121.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 64
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeLeft" type="Label" parent="CanvasLayer"]
+offset_left = 1.0
+offset_top = 33.0
+offset_right = 397.0
+offset_bottom = 121.0
+theme_override_font_sizes/font_size = 64
+text = "30 "
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="GiftTimer" to="." method="_on_gift_timer_timeout"]
 [connection signal="timeout" from="CountDownTImer" to="." method="_on_count_down_t_imer_timeout"]
+[connection signal="pressed" from="CanvasLayer/StartGameButton" to="." method="_on_start_game_button_pressed"]

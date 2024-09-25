@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cerr4jj0yjkjf"
+path="res://.godot/imported/voz duente ruim.WAV-8e885843835b4804788e4afd381fc5e2.sample"
+
+[deps]
+
+source_file="res://assets/real/npc_gnome/voz duente ruim.WAV"
+dest_files=["res://.godot/imported/voz duente ruim.WAV-8e885843835b4804788e4afd381fc5e2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
